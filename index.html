@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Interactive visual study notes for AI engineering.">
+<title>AI Visual Notes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="logo">✦</div><div>AI Visual Notes<small>Learning path · 16 visual lessons</small></div></div>
+    <input id="search" class="search" type="search" placeholder="Search AI topics…" aria-label="Search AI topics">
+    <div class="filter-row" id="filters"></div>
+    <div class="lesson-list" id="lessonList"></div>
+    <div class="no-topics" id="noTopics">No matching lessons.</div>
+  </aside>
+
+  <div class="content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu" id="menuBtn" type="button" aria-label="Open topic navigation">☰</button>
+        <div class="current-title"><strong id="topTitle">AI Visual Notes</strong><span id="topCategory">Visual AI engineering library</span></div>
+      </div>
+      <div class="counter" id="counter">1 / 16</div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="intro-copy">
+          <div class="eyebrow" id="eyebrow">Interactive visual lesson</div>
+          <h1 id="title"><span class="mark">RAG Architecture</span></h1>
+          <p class="summary" id="summary"></p>
+        </div>
+        <div class="actions">
+          <button class="action" id="prevBtn" type="button">← Previous</button>
+          <button class="action primary" id="zoomBtn" type="button">View full size</button>
+          <button class="action" id="nextBtn" type="button">Next →</button>
+        </div>
+      </section>
+
+      <section class="stage">
+        <div class="poster-card">
+          <div class="poster-frame" id="posterFrame">
+            <img id="poster" alt="">
+            <button class="rag-hotspot hs1" type="button" data-rag="1" aria-label="Explain RAG query input"></button>
+            <button class="rag-hotspot hs2" type="button" data-rag="2" aria-label="Explain RAG query embedding"></button>
+            <button class="rag-hotspot hs3" type="button" data-rag="3" aria-label="Explain RAG retrieval"></button>
+            <button class="rag-hotspot hs4" type="button" data-rag="4" aria-label="Explain RAG prompt construction"></button>
+            <button class="rag-hotspot hs5" type="button" data-rag="5" aria-label="Explain RAG LLM generation"></button>
+            <button class="rag-hotspot hs6" type="button" data-rag="6" aria-label="Explain RAG response"></button>
+          </div>
+          <div class="interaction-note" id="ragNote" aria-live="polite"></div>
+        </div>
+
+        <aside class="info">
+          <div class="info-card">
+            <h2>Library progress</h2>
+            <div class="progress"><span id="progressBar"></span></div>
+            <p id="progressText" style="margin-top:8px"></p>
+            <div class="keyboard">Desktop: ← / → changes lesson · Esc closes full-size view</div>
+          </div>
+        </aside>
+      </section>
+
+
+
+      <section class="interview-section" id="interviewSection" aria-labelledby="interviewTitle">
+        <div class="interview-head">
+          <div>
+            <div class="eyebrow">Senior AI engineer interview preparation</div>
+            <h2 id="interviewTitle">Interview Preparation · Production Q&amp;A</h2>
+            <p id="interviewDescription">Scenario-driven senior AI engineering questions with practical pseudocode and production trade-offs.</p>
+          </div>
+          <div class="interview-meta" id="interviewMeta">10 questions · Senior</div>
+        </div>
+        <div class="interview-list" id="interviewList"></div>
+        <div class="interview-note">Recommended study flow: answer the question aloud first, then reveal the answer, inspect the pseudocode, and finish by explaining the senior-engineer trade-offs in your own words.</div>
+      </section>
+
+      <div class="footer-note">AI Visual Notes · visual-first learning library</div>
+    </main>
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Full-size lesson">
+  <div class="modal-bar">
+    <strong id="modalTitle">Lesson</strong>
+    <div class="modal-actions">
+      <button id="zoomOut" type="button">−</button>
+      <button id="zoomReset" type="button">100%</button>
+      <button id="zoomIn" type="button">+</button>
+      <button class="close-x" id="closeModal" type="button" aria-label="Close">×</button>
+    </div>
+  </div>
+  <div class="zoom-area" id="zoomArea"><img id="zoomImage" alt=""></div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
